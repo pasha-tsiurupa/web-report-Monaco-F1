@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+     <table>
+        <tr>
+            <th><h5>Driver</h5></th>
+            <th><h5>Team</h5></th>
+            <th><h5>Lap time</h5></th>
+        </tr>
+        <tr>
+            <td><h3>{{ name }}</h3></td>
+            <td><h3>{{ team }}</h3></td>
+            <td><h3>{{ time }}</h3></td>
+        </tr>
+</table>
+
+</body>
+{% endblock content %}

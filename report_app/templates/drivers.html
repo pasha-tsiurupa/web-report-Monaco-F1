@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+ 
+</head>
+<body>
+<table >
+    <tr>
+        <th><h2>Driver</h2></th>
+        <th><h2>Info</h2></th>
+    </tr>
+    {% for driver in drivers %}
+    <tr>
+        <td>
+            <h4>{{ driver[0] }}</h4>
+        </td>
+        <td>
+            <a name="driver_id" href="{{ url_for('show_drivers', driver_id = driver[1]) }}">
+                <h4>Statistic</h4></a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+{% endblock content %}

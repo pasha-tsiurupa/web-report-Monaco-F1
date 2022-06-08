@@ -1,0 +1,28 @@
+{% extends "main.html" %}
+
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    {% block content %}
+   
+    <a class="btn btn-primary" name="order" href="{{ url_for('common_statistic', order = 'asc') }}">ASC</a>
+    <a class="btn btn-primary" name="order" href="{{ url_for('common_statistic', order = 'desc') }}">DESC</a>
+    <table>
+        <tr>
+            <th><h3>P</h3></th>
+            <th><h3>Driver</h3></th>
+            <th><h3>Team</h3></th>
+            <th><h3>Time</h3></th>
+        </tr>
+        {% for racer in statistic %}
+        <tr>
+            <td><h3>{{racer[0]}}</h3></td>
+            <td><h3>{{racer[1]}}</h3></td>
+            <td><h3>{{racer[2]}}</h3></td>
+            <td><h3>{{racer[3]}}</h3></td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% endblock content %}
+</body>
