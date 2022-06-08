@@ -10,13 +10,13 @@
         <th><h2>Driver</h2></th>
         <th><h2>Info</h2></th>
     </tr>
-    {% for driver in drivers %}
+    {% for abbr in drivers %}
     <tr>
         <td>
-            <h4>{{ driver[0] }}</h4>
+            <h4>{{ drivers[abbr] }}</h4>
         </td>
         <td>
-            <a name="driver_id" href="{{ url_for('show_drivers', driver_id = driver[1]) }}">
+            <a name="driver_id" href="{{ url_for('show_drivers', driver_id = abbr) }}">
                 <h4>Statistic</h4></a>
         </td>
     </tr>

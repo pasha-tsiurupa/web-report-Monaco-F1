@@ -14,10 +14,10 @@ def common_statistic():
     result = report.build_report('../data_files')
     order = request.args.get('order')
     statistic = []
-    for driver in result:
-        place = result[driver][0]
-        team = result[driver][1]
-        lap_time = result[driver][2]
+    for driver, driver_result in result.items():
+        place = driver_result[0]
+        team = driver_result[1]
+        lap_time = driver_result[2]
         statistic.append([place, driver, team, lap_time])
     if order == 'desc':
         return render_template('statistic.html', statistic=statistic[::-1])
@@ -28,9 +28,9 @@ def common_statistic():
 def show_drivers():
     data = report.load_data('../data_files')
     driver_id = request.args.get('driver_id')
-    drivers = []
+    drivers = {}
     for driver in data:
-        drivers.append([driver.name, driver.abbreviation])
+        drivers[driver.abbreviation] = driver.name
     if driver_id:
         for driver in data:
             if driver.abbreviation == driver_id:
@@ -38,6 +38,8 @@ def show_drivers():
                 result = driver_info.split('|')
                 return render_template('driver_info.html', name=result[0],
                                        team=result[1], time=result[2])
+            elif driver_id not in drivers.keys():
+                return render_template('page_not_found.html')
     return render_template('drivers.html', drivers=drivers)
 
 

@@ -15,12 +15,12 @@
             <th><h3>Team</h3></th>
             <th><h3>Time</h3></th>
         </tr>
-        {% for racer in statistic %}
+        {% for place, driver, team, lap_time in statistic %}
         <tr>
-            <td><h3>{{racer[0]}}</h3></td>
-            <td><h3>{{racer[1]}}</h3></td>
-            <td><h3>{{racer[2]}}</h3></td>
-            <td><h3>{{racer[3]}}</h3></td>
+            <td><h3>{{place}}</h3></td>
+            <td><h3>{{driver}}</h3></td>
+            <td><h3>{{team}}</h3></td>
+            <td><h3>{{lap_time}}</h3></td>
         </tr>
         {% endfor %}
     </table>
